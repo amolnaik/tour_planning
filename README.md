@@ -67,7 +67,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* Special thanks to [@sackh] for his help in adding HERE maps to Folium
+* Special thanks to @sackh for his help in adding HERE maps to Folium
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
