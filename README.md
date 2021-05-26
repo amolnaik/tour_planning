@@ -18,7 +18,7 @@
 ## About The Project
 This is a simple streamlit app to demonstrate HERE Tour Planning. With the Tour Planning, you can dynamically optimize routes for multiple vehicles visiting a set of locations given real-life constraints such as limited capacity in a vehicle or delivery time windows.
 
-![Product Name Screen Shot](tpa_demo_app.png)
+![Product Name Screen Shot](here_tpa_demo.gif)
 
 Upload a pre-formatted tpa_request excel file with the details of transport orders and fleet of vehicles. Configure costs to optimize the tour plans for, and send it over to HERE Tour Planning. The API will solve the multi-vehicle routing problem and provide the optimal sequence of locations according to the costs.
 
