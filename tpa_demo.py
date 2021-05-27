@@ -218,7 +218,7 @@ if valid_file:
     centroid_lng = df_plan['job_lng'].mean()
 
     import openrouteservice as ors
-    client = ors.Client(key='5b3ce3597851110001cf6248e9dd6ba0e36b48fcbda8173d5457aa6a')
+    client = ors.Client(key=os.getenv('ORS_CLIENT_KEY'))
 
     tpa_response = requests.post("https://tourplanning.hereapi.com/v2/problems", data=trp_request_json, headers=headers)
 
@@ -240,7 +240,9 @@ if valid_file:
     df_stats = pd.DataFrame(tour_stats)
     st.dataframe(df_stats)
 
-    m = folium.Map([centroid_lat, centroid_lng], zoom_start=8, tiles="https://2.base.maps.ls.hereapi.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/512/png8?apiKey=1REDmaXmoD51eSCmUtZqFLZIG9DjssK4aBHU3hhs7zQ", attr="<a href=here.com/>HERE</a>")
+    tile_url = "https://2.base.maps.ls.hereapi.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/512/png8?apiKey=" + os.getenv('HERE_MAP_API_KEY')
+
+    m = folium.Map([centroid_lat, centroid_lng], zoom_start=11, tiles=tile_url, attr="<a href=here.com/>HERE</a>")
 
     for i in range(len(res['tours'])):
 
