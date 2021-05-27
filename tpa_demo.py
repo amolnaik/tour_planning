@@ -100,7 +100,7 @@ if uploaded_file is not None:
     df_fleet = pd.read_excel(uploaded_file, sheet_name='fleet')
     valid_file = True
 else:
-    st.write("Invalid file format")
+    st.write("Please upload valid excel file.")
     valid_file = False
 
 if valid_file:
@@ -189,7 +189,6 @@ if valid_file:
                                                'duration': row['job_duration'],
                                                'demand': [row['job_demand']]})
 
-        #my_jobs.append({'id': str(uuid.uuid4()), 'places': place})
         my_jobs.append({'id': row['job_id'], 'places': place})
 
 
@@ -240,9 +239,9 @@ if valid_file:
     df_stats = pd.DataFrame(tour_stats)
     st.dataframe(df_stats)
 
-    tile_url = "https://2.base.maps.ls.hereapi.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/512/png8?apiKey=" + os.getenv('HERE_MAP_API_KEY')
+    tiles_url = "https://2.base.maps.ls.hereapi.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/512/png8?apiKey=" + os.getenv('HERE_MAP_API_KEY')
 
-    m = folium.Map([centroid_lat, centroid_lng], zoom_start=11, tiles=tile_url, attr="<a href=here.com/>HERE</a>")
+    m = folium.Map([centroid_lat, centroid_lng], zoom_start=11, tiles=tiles_url, attr="<a href=here.com/>With Love From HERE Technologies</a>")
 
     for i in range(len(res['tours'])):
 
